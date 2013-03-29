@@ -1,28 +1,18 @@
 # Django settings for recetario project.
-#encoding:utf-8
 
-# Identificando la ruta del proyecto
-import os
-RUTA_PROYECTO = os.path.dirname(os.path.realpath(__file__))
-
-#Está linea se debe dejar en False cuando se pasa a producción
-#DEBUG = False, 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-		('Sergio Infante Montero', 'raulsergio9@gmail.com'),
+    # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
 
-#En el nombre de la base de datos debe ir la ruta absoluta completa de la base de
-#datos, en el caso de Windows debe ir entre comillas
-#'NAME': '/ruta_del_directorio_del_proyecto/recetario/recetario.db',
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'recetario.db',          # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -30,18 +20,19 @@ DATABASES = {
     }
 }
 
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = []
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
-TIME_ZONE = 'America/Lima'
+# In a Windows environment this must be set to your system time zone.
+TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'es-PE'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -58,14 +49,12 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(RUTA_PROYECTO,'carga')
+MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-# Configurar esta línea es importante puede quedar algo así:
-# MEDIA_URL = 'http://localhost:90/media/'
-MEDIA_URL = 'http://127.0.0.1:8000/media/'
+MEDIA_URL = ''
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -75,9 +64,6 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-# Esto debe configurarse de manera similar que el media para poder servir archivos estáticos
-# Puede ser algo como esta linea comentada
-# STATIC_URL = 'http://localhost:90/static/'
 STATIC_URL = '/static/'
 
 # Additional locations of static files
@@ -85,7 +71,6 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(RUTA_PROYECTO,'static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -97,7 +82,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'wu(-4)i-iq56u*73+bou^j00e!tso*w*0vv7i5%-!n=$w6!m#k'
+SECRET_KEY = '6ih7$9+0#ja38853if+r2bw1@mr$fpys8dqtt)8!scvx6d1)0('
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -122,7 +107,9 @@ ROOT_URLCONF = 'recetario.urls'
 WSGI_APPLICATION = 'recetario.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(RUTA_PROYECTO,'plantillas'),
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
 )
 
 INSTALLED_APPS = (
@@ -132,9 +119,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.admin',
-    'django.contrib.admindocs',
-    'principal',
+    # Uncomment the next line to enable the admin:
+    # 'django.contrib.admin',
+    # Uncomment the next line to enable admin documentation:
+    # 'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -166,9 +154,10 @@ LOGGING = {
     }
 }
 
-#Configuraciones para enviar mensajes usando gmail
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'remitente@gmail.com'
-EMAIL_HOST_PASSWORD = 'clavedelcorreo'
-EMAIL_PORT = 587
+# Preparamos el entorno para cargar una
+# configuración personalizada:
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
