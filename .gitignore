@@ -1,4 +1,7 @@
+*~
 *.pyc
 local_setting.py
 recetario/recetario/local_settings.py
-recetario/recetario.db 
+recetario/recetario.db
+
+
