@@ -9,8 +9,7 @@
 {% endblock %}
 
 {% block contenido %}
-  <p>
-	  Actualmente tenemos registradas: 
+  <p>Actualmente tenemos registradas: 
      {% with total=recetas.count %} 
 		{{total}} receta{{total|pluralize}}
 	 {% endwith %}
@@ -19,7 +18,7 @@
 	  {% for dato in recetas %}
 	  <li class="{% cycle 'impar' 'par' %}">{{dato.titulo|title}}</li>
 	  {% empty %}
-	  <li>No hay recetas registradas aún.</li>
+	  <li>No hay recetas registradas aún.</li>0
 	  {% endfor %}
 	</ul>
 {% endblock %}

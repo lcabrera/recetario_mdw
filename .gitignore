@@ -1,6 +1,9 @@
+# Habituales:
+# ~~~~~~~~~~
 *~
 *.pyc
 
 # Ficheros especiales:
+# ~~~~~~~~~~~~~~~~~~~
 recetario/recetario.db
 recetario/recetario/local_settings.py
