@@ -1,7 +1,6 @@
 *~
 *.pyc
-local_setting.py
-recetario/recetario/local_settings.py
+
+# Ficheros especiales:
 recetario/recetario.db
-
-
+recetario/recetario/local_settings.py
