@@ -1,3 +1,15 @@
-Proyecto para la Guía de Django de Maestros del Web
+Datos necesarios para una receta: (http://en.wikipedia.org/wiki/Recipe)
 
-Autor: Sergio Infante Montero - <raulsergio9 en gmail punto com>
+ · The name (and often the locale or provenance) of the dish
+ · How much time it will take to prepare the dish
+ · The required ingredients along with their quantities or proportions
+ · Necessary equipment and environment needed to prepare the dish
+ · An ordered list of preparation steps
+ · The number of servings that the recipe will provide (the "yield")
+ · The texture and flavor
+ · A photograph of the finished dish
+
+
+Basado en el Proyecto para la Guía de Django de Maestros del Web de: Autor: Sergio Infante Montero - <raulsergio9 en gmail punto com>
+
+
